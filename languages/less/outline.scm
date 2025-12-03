@@ -22,21 +22,6 @@
     (block)
 ) @item
 
-
-;; === Import statements: @import "xxx.less" / @import url("xxx.css")
-(import_statement
-  "@import" @context
-  (string_value) @name
-) @item
-
-(import_statement
-  "@import" @context
-  (call_expression
-    (function_name) @context
-    (arguments (string_value) @name)
-  )
-) @item
-
 ;; === Rulesets: .a, #b { ... } (supports nested selectors)
 (rule_set
   (selectors
@@ -86,5 +71,5 @@
 (declaration
   (property_name) @name
   ; _ @context
-  (#match? @name "^@")
+  (#match? @name "^@|^--")
 ) @item
